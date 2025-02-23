@@ -172,6 +172,12 @@ header .logo {
     border-color: transparent;
     background-color: rgba(216, 43, 43, 0.247);
     color: rgb(194, 23, 23);
+animation: blink 1s infinite alternate;
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; } 
+    100% { opacity: 1; }
 }
 .ligne{
     width: 100%;
