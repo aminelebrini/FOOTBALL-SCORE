@@ -6,169 +6,133 @@
   <title>FOOTBALL SCORE</title>
   <style>
     body {
-      background-color: black;
-      color: white;
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-    header {
-      background-color: rgb(24, 23, 23);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      position: sticky;
-      top: 0;
-      border-radius: 0px 0px 15px 15px;
-      z-index: 1000;
-    }
+header {
+    background-color: rgb(24, 23, 23);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    border-radius: 0px 0px 15px 15px;
+    z-index: 1000;
+}
 
-    .nav {
-      display: flex;
-      text-align: center;
-      justify-content: center;
-      flex-direction: row;
-    }
+.diapo {
+    width: 100%;
+    height: 100vh; 
+    background-image: url('https://i.pinimg.com/originals/3c/c8/88/3cc88870daa5d31ed101b4dd845680bc.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    opacity: 0.8;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
-    .nav a {
-      color: white;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease-in-out;
-    }
-
-    .nav a:hover {
-      color: rgb(26, 148, 26);
-    }
-
-    .nav a.active {
-      color: rgb(26, 148, 26);
-      text-decoration: underline;
-      align-items: flex-start;
-    }
-
-    hr {
-      border: 1px solid rgb(26, 148, 26);
-      margin: 20px 0;
-    }
-
-    .line {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px;
-    }
-
-    .diapo {
-      width: 100%;
-      height: 100vh; 
-      background-image: url('https://i.pinimg.com/originals/3c/c8/88/3cc88870daa5d31ed101b4dd845680bc.jpg');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      opacity: 80%;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-    @keyframes animationleft_to_right {
-      0%{
+@keyframes animationleft_to_right {
+    0% {
         transform: translateX(-80vh);
-      }
-      100%{
+    }
+    100% {
         transform: translateX(5vh);
-      }
     }
+}
 
-    @keyframes animationright_to_left {
-      0%{
+@keyframes animationright_to_left {
+    0% {
         transform: translateX(80vh);
-      }
-      100%{
+    }
+    100% {
         transform: translateX(-5vh);
-      }
     }
-    .dia a {
-  display: block;
-  width: 250px;
-  height: 50px;
-  font-size: 26px;
-  padding-top: 10px;
-  text-align: center;
-  line-height: 40px;
-  border-radius: 10px;
-  background-color: rgb(26, 148, 26);
-  color: white;
-  font-weight: bold;
-  position: relative;
-  text-decoration: none;
-  margin-left: 32%;
-  margin-top: 20%;
-  margin-right: 0;
-  transition: background-color 0.3s ease-in-out;
-  animation: animationleft_to_right 3s;
 }
-.dia p{
-  font-size: 30px;
-  width: 600px;
-  font-weight: bold;
-  color: white;
-  margin-left: 6%;
-  margin-top: 10%;
-  margin-right: 0;
-  animation: animationleft_to_right 6s;
+
+.dia a {
+    display: block;
+    width: 220px;
+    height: 50px;
+    font-size: 22px;
+    padding-top: 10px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 10px;
+    background-color: rgb(26, 148, 26);
+    color: white;
+    font-weight: bold;
+    position: relative;
+    text-decoration: none;
+    margin-left: 30%;
+    margin-top: 15%;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    animation: animationleft_to_right 3s;
 }
+
+.dia a:hover {
+    background-color: rgb(20, 120, 20);
+    transform: scale(1.05);
+}
+
+.dia p {
+    font-size: 28px;
+    width: 500px;
+    font-weight: bold;
+    color: white;
+    margin-left: 5%;
+    margin-top: 8%;
+    animation: animationleft_to_right 6s;
+}
+
 .diapo img {
-  width: 40%;
-  height: 81.8%;
-  margin-top: 8.4%;
-  margin-left: 8%; 
-  margin-right: 0;
-  filter: drop-shadow( 8px 8px 15px rgba(0, 0, 0, 0.5));
-  animation: animationright_to_left 3s;
+    width: 38%;
+    height: auto;
+    max-height: 80%;
+    margin-top: 12.42%;
+    margin-left: 5%; 
+    filter: drop-shadow(8px 8px 15px rgba(0, 0, 0, 0.5));
+    animation: animationright_to_left 3s;
 }
-    .diapo a:hover {
-      background-color: rgb(20, 120, 20);
+
+@media (max-width: 768px) {
+    .diapo {
+        flex-direction: column;
+        height: auto;
+        margin-left: -20px;
+        padding: 20px;
     }
 
-    .home {
-      color: rgb(26, 148, 26);
+    .dia a {
+        width: 180px;
+        font-size: 18px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    footer {
-      background-color: rgb(24, 23, 23);
-      text-align: center;
-      padding: 0px;
-      font-size: 14px;
-      color: white;
-    }
-    .line{
-      display: flex;
-      flex-direction: row;
-      text-align: center;
-      height: 45px;
-      align-items: center;
-      justify-content: center;
-    }
-    .line p{
-      font-weight: bold;
-    }
-    .line p a {
-      color: rgb(26, 148, 26);
-      text-decoration: none;
-      font-weight: bold;
-      text-align: center;
-
+    .dia p {
+        font-size: 20px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
     }
 
-    .line a:hover {
-      text-decoration: underline;
-    }
+    .diapo img {
+        width: 80%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+      }
+}
+
   </style>
 </head>
 <body>
