@@ -32,7 +32,15 @@ header .logo {
     height: auto;  
     cursor: pointer;  
 }
-
+@media (max-width: 768px) {
+    header {
+        padding: 8px 10px;
+    }
+    .logo {
+        width: 50px;
+        height: auto;
+    }
+}
         /*.nav a {
             color: white;
             margin-left: 20px;
@@ -133,8 +141,19 @@ header .logo {
 .btn{
     display: flex;
     justify-content: center;
-    flex-direction: row;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    gap: 10px; 
+    cursor: pointer;
+    border-radius: 5px;
     margin-top: 8%;
+    padding: 8px 12px;
+    width: auto;
+    min-width: 120px;
+    text-align: center;
+
 }
 .btn button{
     margin-left: 20px;
@@ -158,6 +177,55 @@ header .logo {
     width: 100%;
     margin-top: 1%;
 }
+@media (max-width: 480px) {
+    .ligne {
+        width: 95%;
+    }
+}
+@media (max-width: 768px) {
+    .match-row {
+        width: 100%;  
+        flex-direction: row; 
+        align-items: center;
+        text-align: center;
+        padding: 8px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .matchHome-team, .matchAway-team {
+        width: 100%; 
+        justify-content: center;
+        font-size: 14px; 
+    }
+
+    .match-score {
+        width: auto; 
+        font-size: 18px;
+        padding: 5px 10px;
+    }
+
+    .team-logo {
+        width: 35px; 
+        height: 35px;
+    }
+
+    .btn {
+        width: 90%;
+        margin-top: 25%;
+        gap: 5px; 
+        justify-content: space-around; 
+    }
+
+    .btn button {
+        gap: 0px; 
+
+        font-size: 16px;
+        padding: 10px;
+        width: 100px;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -226,7 +294,6 @@ function displayMatches(matches) {
 
     const Finished = document.getElementById('matchfinished');
 
-    // قائمة الدوريات المطلوبة
     const allowedLeagues = [
         "UEFA Champions League","UEFA Champions League, Knockout Phase", "UEFA Europa League, Knockout Phase","UEFA Europa League, Knockout Phase", "Premier League",
         "LaLiga", /*"Serie A"*/, "Bundesliga", /*"Ligue 1"*/, "Botola Pro D1",
@@ -464,14 +531,11 @@ function displayLIVEMatches(matches) {
                 if(time === "Postponed")
                 {
                     score.innerHTML = `- <span class="match-time">${time}</span> -`;
-
                 }
-
             }
             row.appendChild(homeTeam);
             row.appendChild(score);
             row.appendChild(awayTeam);
-
             matchesList.appendChild(row);
         }
     });
@@ -557,8 +621,6 @@ const teamsucl = [
     {teamId : 3305, teamname: "Dynamo Kyiv" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(114).png?raw=true"},
     {teamId : 1661, teamname: "Nice" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(115).png?raw=true"},
     {teamId : 5962, teamname: "Qarabağ" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(116).png?raw=true"},
-
-    
     //Premier League
     {teamId : 44, teamname: "Liverpool" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(8).png?raw=true"},
     {teamId : 42, teamname: "Arsenal" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/104.png?raw=true"},
@@ -601,9 +663,7 @@ const teamsucl = [
     {teamId : 2828, teamname: "Valencia" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/139.png?raw=true"},
     {teamId : 2885, teamname: "Deportivo Alavés" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/168.png?raw=true"},
     {teamId : 2831, teamname: "Real Valladolid" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(118).png?raw=true"},
-    
     //botola pro INWI
-
     {teamId : 80395, teamname: "RS Berkane" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(79).png?raw=true"},
     {teamId : 263373, teamname: "Renaissance Zemamra" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(80).png?raw=true"},
     {teamId : 24394, teamname: "AS FAR Rabat" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(81).png?raw=true"},
@@ -620,7 +680,6 @@ const teamsucl = [
     {teamId : 297607, teamname: "Jeunesse Sportive Soualem" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(92).png?raw=true"},
     {teamId : 55049, teamname: "Moghreb Atlético Tetuán" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(93).png?raw=true"},
     {teamId : 327830, teamname: "SC Chabab Mohammédia" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(94).png?raw=true"},
-
     //SERIE A
     { teamname: 'FC Bayern München', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(34).png?raw=true' },
     { teamname: 'Borussia Dortmund', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(31).png?raw=true' },
@@ -641,8 +700,6 @@ const teamsucl = [
     { teamname: 'FC St. Pauli', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(131).png?raw=true' },
     { teamname: 'Holstein Kiel', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(132).png?raw=true' },
 ];
-
-  
     </script>
 </body>
 </html>
