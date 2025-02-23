@@ -491,12 +491,12 @@ function displayLIVEMatches(matches) {
             awayLogo.alt = match.awayTeam.name;
 
             let HomeTeam = match.homeTeam.name;
-            let PartHomeTeam = HomeTeam.split(/\s+/);
+            /*let PartHomeTeam = HomeTeam.split(/\s+/);
             let firstLettersHomeTeam = PartHomeTeam[0].substring(0, 1); 
-            let lastHomeTeamName = PartHomeTeam.length > 1 ? PartHomeTeam.slice(1).join(' ') : ''; 
+            let lastHomeTeamName = PartHomeTeam.length > 1 ? PartHomeTeam.slice(1).join(' ') : ''; */
 
             let AwayTeam = match.awayTeam.name;
-            let PartAwayTeam = AwayTeam.split(/\s+/);
+            /*let PartAwayTeam = AwayTeam.split(/\s+/);
             let firstLettersAwayTeam = PartAwayTeam[0].substring(0,1);
             let lastAwayTeamName = PartAwayTeam.length > 1 ? PartAwayTeam.slice(1).join(' ') : '';
             
@@ -508,7 +508,7 @@ function displayLIVEMatches(matches) {
                 HomeTeam = HomeTeam.toUpperCase();
                 AwayTeam = AwayTeam.toUpperCase();
             }
-
+                */
             homeTeam.appendChild(homeLogo);
             homeTeam.appendChild(document.createTextNode(HomeTeam));
 
