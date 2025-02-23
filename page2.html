@@ -86,7 +86,7 @@ header .logo {
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.team-logo {
+.hometeam-logo, .awayteam-logo {
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -184,7 +184,7 @@ header .logo {
 }
 @media (max-width: 768px) {
     .match-row {
-        width: 100%;  
+        width: 103%;  
         flex-direction: row; 
         align-items: center;
         text-align: center;
@@ -194,22 +194,28 @@ header .logo {
     }
 
     .matchHome-team, .matchAway-team {
-        width: 100%; 
+        width: 100%;
         justify-content: center;
-        font-size: 14px; 
+        font-size: 12px;
     }
 
     .match-score {
-        width: auto; 
-        font-size: 18px;
+        font-size: 14px;
+        width: auto;
         padding: 5px 10px;
     }
 
-    .team-logo {
+    .hometeam-logo, .awayteam-logo {
         width: 35px; 
         height: 35px;
     }
-
+    .hometeam-logo{
+        margin-left: 5px;
+        justify-content: flex-start;
+    }
+    .awayteam-logo{
+        justify-content: flex-end;
+    }
     .btn {
         width: 90%;
         margin-top: 25%;
@@ -219,7 +225,6 @@ header .logo {
 
     .btn button {
         gap: 0px; 
-
         font-size: 16px;
         padding: 10px;
         width: 100px;
@@ -321,9 +326,9 @@ function displayMatches(matches) {
             tournamentName.textContent = match.tournament.name;
 
             const homeLogo = document.createElement('img');
-            homeLogo.classList.add('team-logo');
+            homeLogo.classList.add('hometeam-logo');
             const awayLogo = document.createElement('img');
-            awayLogo.classList.add('team-logo');
+            awayLogo.classList.add('awayteam-logo');
 
             const homeTeam = document.createElement('div');
             homeTeam.classList.add('matchHome-team');
@@ -531,11 +536,14 @@ function displayLIVEMatches(matches) {
                 if(time === "Postponed")
                 {
                     score.innerHTML = `- <span class="match-time">${time}</span> -`;
+
                 }
+
             }
             row.appendChild(homeTeam);
             row.appendChild(score);
             row.appendChild(awayTeam);
+
             matchesList.appendChild(row);
         }
     });
@@ -621,6 +629,8 @@ const teamsucl = [
     {teamId : 3305, teamname: "Dynamo Kyiv" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(114).png?raw=true"},
     {teamId : 1661, teamname: "Nice" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(115).png?raw=true"},
     {teamId : 5962, teamname: "Qarabağ" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(116).png?raw=true"},
+
+    
     //Premier League
     {teamId : 44, teamname: "Liverpool" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(8).png?raw=true"},
     {teamId : 42, teamname: "Arsenal" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/104.png?raw=true"},
@@ -663,7 +673,9 @@ const teamsucl = [
     {teamId : 2828, teamname: "Valencia" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/139.png?raw=true"},
     {teamId : 2885, teamname: "Deportivo Alavés" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/168.png?raw=true"},
     {teamId : 2831, teamname: "Real Valladolid" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(118).png?raw=true"},
+    
     //botola pro INWI
+
     {teamId : 80395, teamname: "RS Berkane" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(79).png?raw=true"},
     {teamId : 263373, teamname: "Renaissance Zemamra" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(80).png?raw=true"},
     {teamId : 24394, teamname: "AS FAR Rabat" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(81).png?raw=true"},
@@ -680,6 +692,7 @@ const teamsucl = [
     {teamId : 297607, teamname: "Jeunesse Sportive Soualem" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(92).png?raw=true"},
     {teamId : 55049, teamname: "Moghreb Atlético Tetuán" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(93).png?raw=true"},
     {teamId : 327830, teamname: "SC Chabab Mohammédia" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(94).png?raw=true"},
+
     //SERIE A
     { teamname: 'FC Bayern München', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(34).png?raw=true' },
     { teamname: 'Borussia Dortmund', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(31).png?raw=true' },
@@ -700,6 +713,8 @@ const teamsucl = [
     { teamname: 'FC St. Pauli', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(131).png?raw=true' },
     { teamname: 'Holstein Kiel', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(132).png?raw=true' },
 ];
+
+  
     </script>
 </body>
 </html>
