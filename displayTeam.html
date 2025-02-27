@@ -157,6 +157,7 @@ th, td {
 
 /* تصميم الهاتف */
 @media screen and (max-width: 768px) {
+    
     .display {
         flex-direction: column;
         align-items: center;
@@ -172,7 +173,7 @@ th, td {
     }
 
     .match {
-        width: 100%;
+        width: 98%;
         margin-top: 10px;
     }
 
@@ -186,12 +187,22 @@ th, td {
     }
 
     header {
-        width: 100%;
-        padding: 10px;
+    background-color: rgb(24, 23, 23);
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 98%;
+    left: 0;
+    border-radius: 0 0 15px 15px;
+    z-index: 1000;
+    justify-content: space-between;
     }
 
     .nav {
         flex-wrap: wrap;
+            text-align: center;
         justify-content: center;
     }
 
