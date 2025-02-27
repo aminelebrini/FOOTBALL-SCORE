@@ -16,42 +16,55 @@
         header {
     background-color: rgb(24, 23, 23);
     display: flex;
-    justify-content: center;  
     align-items: center;     
     padding: 10px 20px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    border-radius: 0px 0px 15px 15px;
+    border-radius: 0 0 15px 15px;
     z-index: 1000;
 }
 
 header .logo {
     width: 70px;  
     height: auto;  
-    cursor: pointer;  
+    cursor: pointer;
 }
+
+.nav {
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); 
+}
+
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav a:hover {
+    color: rgb(26, 148, 26);
+}
+
 @media (max-width: 768px) {
     header {
         padding: 8px 10px;
     }
-    .logo {
+
+    header .logo {
         width: 50px;
-        height: auto;
+    }
+
+    .nav {
+        gap: 15px;
     }
 }
-        /*.nav a {
-            color: white;
-            margin-left: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease-in-out;
-        }
-
-        .nav a:hover {
-            color: rgb(26, 148, 26);
-        }*/
 
         #loading {
             text-align: center;
@@ -89,7 +102,7 @@ header .logo {
 .hometeam-logo, .awayteam-logo {
     width: 35px;
     height: 35px;
-    border-radius: 50%;
+    border-radius: 0%;
     object-fit: cover;
     transition: transform 0.3s ease-in-out;
 }
@@ -243,7 +256,12 @@ animation: blink 1s infinite alternate;
 <body>
     <header>
         <img class="logo" src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/logofts.png?raw=true" width="70px" height="70px" onclick="handleClick()">
-            </header>
+        <div class="nav">
+            <a href="./index.html">HOME</a>
+            <a href="./page2.html">MATCHES</a>
+            <a href="./teams.html">TEAMS</a>
+        </div>    
+    </header>
     
     <div class="horiz">
     <!--<div class="ligues">
@@ -400,10 +418,10 @@ function displayMatches(matches) {
                     const teamContainer = document.createElement('div');
                     teamContainer.classList.add('team');
                     const homeLogoImg = document.createElement('img');
-                    homeLogoImg.src = homeTeamData ? homeTeamData.teamLogo : 'https://via.placeholder.com/50';
+                    homeLogoImg.src = homeTeamData ? homeTeamData.teamLogo : 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/logofts.png?raw=true';
                     homeLogoImg.classList.add('team-logo');
                     const awayLogoImg = document.createElement('img');
-                    awayLogoImg.src = awayTeamData ? awayTeamData.teamLogo : 'https://via.placeholder.com/50';
+                    awayLogoImg.src = awayTeamData ? awayTeamData.teamLogo : 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/logofts.png?raw=true';
                     awayLogoImg.classList.add('team-logo');
                     teamContainer.appendChild(homeLogoImg);
                     teamContainer.appendChild(document.createTextNode(` ${match.homeTeam.name} ${homeScore} - ${awayScore} ${match.awayTeam.name} `));
@@ -490,8 +508,8 @@ function displayLIVEMatches(matches) {
             const homeTeamData = teamsucl.find(team => team.teamname === match.homeTeam.name);
             const awayTeamData = teamsucl.find(team => team.teamname === match.awayTeam.name);
 
-            homeLogo.src = homeTeamData ? homeTeamData.teamLogo : 'https://via.placeholder.com/50';
-            awayLogo.src = awayTeamData ? awayTeamData.teamLogo : 'https://via.placeholder.com/50';
+            homeLogo.src = homeTeamData ? homeTeamData.teamLogo : 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/logofts.png?raw=true';
+            awayLogo.src = awayTeamData ? awayTeamData.teamLogo : 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/logofts.png?raw=true';
 
             homeLogo.alt = match.homeTeam.name;
             awayLogo.alt = match.awayTeam.name;
@@ -700,7 +718,7 @@ const teamsucl = [
     {teamId : 55049, teamname: "Moghreb Atlético Tetuán" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(93).png?raw=true"},
     {teamId : 327830, teamname: "SC Chabab Mohammédia" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(94).png?raw=true"},
 
-    //SERIE A
+    //BUNDESLIGA
     { teamname: 'FC Bayern München', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(34).png?raw=true' },
     { teamname: 'Borussia Dortmund', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(31).png?raw=true' },
     { teamname: 'RB Leipzig', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(119).png?raw=true' },
