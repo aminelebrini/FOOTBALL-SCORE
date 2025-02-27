@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title"></title>
+</head>
+<style>
+          body {
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: rgb(24, 23, 23);
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    border-radius: 0px 0px 15px 15px;
+    z-index: 1000;
+}
+header .logo{
+    width: 70px;
+    height: auto;
+    cursor: pointer;
+}
+.nav{
+    display: flex;
+    gap : 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav a:hover {
+    color: rgb(26, 148, 26);
+}
+.display{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.teamInfo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 8%;
+    border-radius: 20px;
+    margin-left: 0px;
+}
+.headTeam {
+    display: flex;
+    height: 130px;
+    align-items: center;
+    margin-bottom: 40px;
+    margin-left: 8px;
+    border-radius: 20px;
+    background-color: #1E1E1E;
+    background-size: cover;
+}
+.headTeam img {
+    margin-left: 20px;
+    border-radius: 10px; 
+    width: 80px;
+    height: 80px;
+    background-color: black; 
+    object-fit:scale-down; 
+    max-width: 100%; 
+    max-height: 100%;
+    padding-top: 0px;
+    margin-top: 0px; 
+}
+
+.teamName {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px;
+    margin-top: 0px;
+}
+select{
+    margin-left: 1px;
+    margin-top: 1px;
+    border-radius: 15px;
+    height: 25px;
+    color: white;
+    background-color: rgb(0, 0, 0);
+}
+
+.standings-lists {
+    width: 99%;
+    margin-top: -5%;
+    background-color: rgb(24, 23, 23);
+    margin-left: 9px;
+    font-size: 1rem;
+    border-radius: 20px;
+    text-align: left;
+}
+th,
+td {
+    padding: 12px 15px;
+    text-align: center;
+}
+th {
+    font-weight: bold;
+    margin-left: 400px;
+    justify-content: space-between;
+}
+
+.team-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.teammatch{
+    margin-top: 8%;
+    display: flex;
+    background-color: #1E1E1E;
+    width: 48%;
+    border-radius: 20px;
+    flex-direction: row;   
+    margin-left: 1%; 
+    justify-content: center;
+}
+.match-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    border-radius: 20px;
+    background-color: rgb(20, 20, 20);
+    width: 100%;
+    height: 70px;
+}
+.match{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 30px;
+    justify-content: center;
+    border-radius: 20px;
+    margin-left:-3%;
+    background-color: rgb(20, 20, 20);
+    width: 105%;
+    height: 70px;
+}
+.home-team, .away-team{
+    width: 220px;
+    display: flex;
+    align-items: center;
+    text-align: start;
+    gap: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+}
+.home-team{
+    justify-content: flex-start;
+}
+.away-team{
+    justify-content: flex-end;
+}
+.score {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 5px 10px;
+    background-color: #1E1E1E; 
+    border-radius: 5px;
+    margin: 5px 0;
+}
+@media screen and (max-width: 800px) {
+    .display {
+        flex-direction: column;
+    }
+    .standings-lists{
+        width: 98%;
+        font-size: 10px;
+    }
+    th,td {
+    padding: 12px 15px;
+    text-align: center;
+}
+th {
+    font-weight: bold;
+    margin-left: 400px;
+    justify-content: space-between;
+}
+
+    .teamInfo {
+        width: 95%;
+    }
+    .teammatch {
+        width: 95%;
+    }
+    .match{
+        width: 85%;
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 30px;
+        border-radius: 20px;
+        background-color: rgb(20, 20, 20);
+        height: 70px;
+        margin-left: 7%;
+    }
+    .home-team, .away-team{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+}
+.home-team{
+    justify-content: flex-start;
+}
+.away-team{
+    justify-content: flex-end;
+}
+.score {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 5px 10px;
+    background-color: #1E1E1E; 
+    border-radius: 5px;
+    margin: 5px 0;
+}
+header {
+    background-color: rgb(24, 23, 23);
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 92%;
+    left: 0;
+    border-radius: 0px 0px 15px 15px;
+    z-index: 1000;
+}
+header .logo{
+    width: 70px;
+    height: auto;
+    cursor: pointer;
+}
+.nav{
+    display: flex;
+    gap : 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav a:hover {
+    color: rgb(26, 148, 26);
+}
+.match-score {
+        font-size: 14px;
+        width: auto;
+        padding: 5px 10px;
+    }
+
+    .hometeam-logo, .awayteam-logo {
+        width: 35px; 
+        height: 35px;
+    }
+    .hometeam-logo{
+        margin-left: 5px;
+        justify-content: flex-start;
+    }
+    .awayteam-logo{
+        justify-content: flex-end;
+    }
+}
+.hometeam-logo, .awayteam-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 0%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.team-logo:hover {
+    transform: scale(1.1);
+}
+</style>
+<body>
+    <header>
+        <img class="logooo" src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/logofts.png?raw=true" width="70px" height="70px">
+        <nav class="nav">
+            <a href="./index.html">HOME</a>
+            <a href="./page2.html" class="home active">MATCHES</a>
+            <a href="./teams.html">TEAMS</a>
+        </nav>
+    </header>
+    <div class="display">
+        <div class="teamInfo">
+            <div class="headTeam">
+                <img src="" id="teamLogo" alt="teamLogo" width="60px" height="60px">
+                <div class="teamName">
+                    <h1 id="teamName"></h1>
+                </div>
+            </div>
+            <div class="standings-lists">
+                <select id="leagueSelect">
+                    <option value="17">PREMIER LEAGUE</option>
+                    <option value="7">UEFA CHAMPIONS LEAGUE</option>
+                    <option value="679">UEFA EUROPA LEAGUE</option>
+                    <option value="8">LA LIGA</option>
+                    <option value="35">BUNDESLIGA</option>
+                </select>
+                <div class="standings-list" id="standings-list">
+                </div>
+            </div>
+        </div>
+        <div class="teammatch" id="teammatch">
+            <div class="team-match" id="team-match"></div>
+        </div>
+    </div>
+</body>
+<script>
+    
+const teamsucl = [
+{teamId : 44, teamname: "Liverpool" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(8).png?raw=true"},
+  {teamId : 42, teamname: "Arsenal" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/104.png?raw=true"},
+  {teamId : 39, teamname: "Manchester City" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/110.png?raw=true"},
+  {teamId : 40, teamname: "Aston Villa" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image50.png?raw=true"},
+  {teamId : 2817, teamname: "Barcelona" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/R.png?raw=true"},
+  {teamId : 2681, teamname: "Bayer 04 Leverkusen" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/fotboll-bayer-04-leverkusen-logo-large-4452.png?raw=true"},
+  {teamId : 2697, teamname: "Inter" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(30).png?raw=true"},
+  {teamId : 1715, teamname: "Stade Brestois" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(24).png?raw=true"},
+  {teamId : 1643, teamname: "Lille" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(51).png?raw=true"},
+  {teamId : 2673, teamname: "Borussia Dortmund" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(31).png?raw=true"},
+  {teamId : 2672, teamname: "FC Bayern München" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(34).png?raw=true"},
+  {teamId : 2836, teamname: "Atlético Madrid" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/134.png?raw=true"},
+  {teamId : 2692, teamname: "Milan" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(2).png?raw=true"},
+  {teamId : 2686, teamname: "Atalanta" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(54).png?raw=true"},
+  {teamId : 2687, teamname: "Juventus" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(55).png?raw=true"},
+  {teamId : 3006, teamname: "Benfica" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(56).png?raw=true"},
+  {teamId : 1653, teamname: "AS Monaco" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(29).png?raw=true"},
+  {teamId : 3001, teamname: "Sporting" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(28).png?raw=true"},
+  {teamId : 2959, teamname: "Feyenoord" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(25).png?raw=true"},
+  {teamId : 2888, teamname: "Club Brugge KV" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(57).png?raw=true"},
+  {teamId : 2829, teamname: "Real Madrid" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(27).png?raw=true"},
+  {teamId : 2352, teamname: "Celtic" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(58).png?raw=true"},
+  {teamId : 2952, teamname: "PSV Eindhoven" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(59).png?raw=true"},
+  {teamId : 2032, teamname: "GNK Dinamo Zagreb" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(60).png?raw=true"},
+  {teamId : 1644, teamname: "Paris Saint-Germain" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(61).png?raw=true"},
+  {teamId : 2677, teamname: "VfB Stuttgart" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(62).png?raw=true"},
+  {teamId : 3313, teamname: "Shakhtar Donetsk" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(63).png?raw=true"},
+  {teamId : 2218, teamname: "AC Sparta Praha" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(23).png?raw=true"},
+  {teamId : 2051, teamname: "SK Sturm Graz" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(64).png?raw=true"},
+  {teamId : 24264, teamname: "Girona FC" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/175.png?raw=true"},
+  {teamId : 5149, teamname: "FK Crvena zvezda" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(65).png?raw=true"},
+  {teamId : 2046, teamname: "Red Bull Salzburg" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(66).png?raw=true"},
+  {teamId : 2685, teamname: "Bologna" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(67).png?raw=true"},
+  {teamId : 36360, teamname: "RB Leipzig" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(68).png?raw=true"},
+  {teamId : 2404, teamname: "ŠK Slovan Bratislava" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(69).png?raw=true"},
+  {teamId : 2445, teamname: "Young Boys" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(70).png?raw=true"},
+  {teamId : 2218, teamname: "AC Sparta Praha" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(23).png?raw=true"},
+  {teamId : 2218, teamname: "AC Sparta Praha" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(23).png?raw=true"},
+  {teamId : 2218, teamname: "AC Sparta Praha" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(23).png?raw=true"},
+
+  {teamId : 2829, teamname: "Real Madrid" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(27).png?raw=true"},
+  {teamId : 2836, teamname: "Atlético Madrid" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/134.png?raw=true"},
+  {teamId : 2817, teamname: "Barcelona" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/R.png?raw=true"},
+  {teamId : 2825, teamname: "Athletic Club" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(19).png?raw=true"},
+  {teamId : 2819, teamname: "Villarreal" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/133.png?raw=true"},
+  {teamId : 2826, teamname: "Mallorca" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(73).png?raw=true"},
+  {teamId : 2824, teamname: "Real Sociedad" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(74).png?raw=true"},
+  {teamId : 24264, teamname: "Girona FC" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/175.png?raw=true"},
+  {teamId : 2816, teamname: "Real Betis" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/146.png?raw=true"},
+  {teamId : 2820, teamname: "Osasuna" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(75).png?raw=true"},
+  {teamId : 2821, teamname: "Celta Vigo" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(76).png?raw=true"},
+    {teamId : 2818, teamname: "Rayo Vallecano" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(77).png?raw=true"},
+    {teamId : 6577, teamname: "Las Palmas" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(78).png?raw=true"},
+    {teamId : 2833, teamname: "Sevilla" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/135.png?raw=true"},
+    {teamId : 2859, teamname: "Getafe" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(22).png?raw=true"},
+    {teamId : 2814, teamname: "Espanyol" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(21).png?raw=true"},
+    {teamId : 2845, teamname: "Leganés" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(117).png?raw=true"},
+    {teamId : 2828, teamname: "Valencia" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/139.png?raw=true"},
+    {teamId : 2885, teamname: "Deportivo Alavés" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/168.png?raw=true"},
+    {teamId : 2831, teamname: "Real Valladolid" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(118).png?raw=true"},
+
+  
+  {teamId : 44, teamname: "Liverpool" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(8).png?raw=true"},
+    {teamId : 42, teamname: "Arsenal" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/104.png?raw=true"},
+    {teamId : 14, teamname: "Nottingham Forest" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/29.png?raw=true"},
+    {teamId : 38, teamname: "Chelsea" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/106.png?raw=true"},
+    {teamId : 39, teamname: "Newcastle United" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(13).png?raw=true"},
+    {teamId : 17, teamname: "Manchester City" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/110.png?raw=true"},
+    {teamId : 60, teamname: "Bournemouth" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(1).png?raw=true"},
+    {teamId : 40, teamname: "Aston Villa" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image50.png?raw=true"},
+    {teamId : 43, teamname: "Fulham" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(7).png?raw=true"},
+    {teamId : 30, teamname: "Brighton & Hove Albion" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(3).png?raw=true"},
+    {teamId : 50, teamname: "Brentford" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(71).png?raw=true"},
+    {teamId : 33, teamname: "Tottenham" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(72).png?raw=true"},
+    {teamId : 35, teamname: "Manchester United" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(12).png?raw=true"},
+    {teamId : 37, teamname: "West Ham United" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(17).png?raw=true"},
+    {teamId : 7, teamname: "Crystal Palace" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(5).png?raw=true"},
+    {teamId : 48, teamname: "Everton" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(6).png?raw=true"},
+    {teamId : 3, teamname: "Wolverhampton" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(18).png?raw=true"},
+    {teamId : 32, teamname: "Ipswich Town" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(9).png?raw=true"},
+    {teamId : 31, teamname: "Leicester City" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(10).png?raw=true"},
+    {teamId : 45, teamname: "Southampton" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(15).png?raw=true"},
+  
+  {teamId : 61645, teamname: "Lazio" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(95).png?raw=true"},
+    {teamId : 2825, teamname: "Athletic Club" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(19).png?raw=true"},
+    {teamId : 35, teamname: "Manchester United" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(12).png?raw=true"},
+    {teamId : 33, teamname: "Tottenham Hotspur" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(72).png?raw=true"},
+    {teamId : 2674, teamname: "Eintracht Frankfurt" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(41).png?raw=true"},
+    {teamId : 1649, teamname: "Olympique Lyonnais" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/465.png?raw=true"},
+    {teamId : 3245, teamname: "Olympiacos FC" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(96).png?raw=true"},
+    {teamId : 2351, teamname: "Rangers" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(42).png?raw=true"},
+    {teamId : 665, teamname: "Bodø/Glimt" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(97).png?raw=true"},
+    {teamId : 2900, teamname: "RSC Anderlecht" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(44).png?raw=true"},
+    {teamId : 3301, teamname: "FCSB" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(98).png?raw=true"},
+    {teamId : 2953, teamname: "Ajax" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(39).png?raw=true"},
+    {teamId : 2824, teamname: "Real Sociedad" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(74).png?raw=true"},
+    {teamId : 3061, teamname: "Galatasaray" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(43).png?raw=true"},
+    {teamId : 2702, teamname: "Roma" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(35).png?raw=true"},
+    {teamId : 4502, teamname: "Viktoria Plzeň" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(37).png?raw=true"},
+    {teamId : 1925, teamname: "Ferencváros TC" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(99).png?raw=true"},
+    {teamId : 3002, teamname: "FC Porto" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(100).png?raw=true"},
+    {teamId : 2950, teamname: "AZ Alkmaar" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(101).png?raw=true"},
+    {teamId : 1289, teamname: "FC Midtjylland" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(102).png?raw=true"},
+    {teamId : 4860, teamname: "Royale Union Saint-Gilloise" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(103).png?raw=true"},
+    {teamId : 3251, teamname: "PAOK" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(104).png?raw=true"},
+    {teamId : 2955, teamname: "FC Twente" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(105).png?raw=true"},
+    {teamId : 3052, teamname: "Fenerbahçe" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(106).png?raw=true"},
+    {teamId : 2999, teamname: "Sporting Braga" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(36).png?raw=true"},
+    {teamId : 1762, teamname: "IF Elfsborg" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(107).png?raw=true"},
+    {teamId : 2569, teamname: "TSG Hoffenheim" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(108).png?raw=true"},
+    {teamId : 3050, teamname: "Beşiktaş" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(109).png?raw=true"},
+    {teamId : 2216, teamname: "SK Slavia Praha" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(110).png?raw=true"},
+    {teamId : 1892, teamname: "Malmö FF" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(111).png?raw=true"},
+    {teamId : 68718, teamname: "RFS" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(112).png?raw=true"},
+    {teamId : 43840, teamname: "Ludogorets" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(113).png?raw=true"},
+    {teamId : 3305, teamname: "Dynamo Kyiv" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(114).png?raw=true"},
+    {teamId : 1661, teamname: "Nice" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(115).png?raw=true"},
+    {teamId : 5962, teamname: "Qarabağ" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(116).png?raw=true"},
+  
+  
+  { teamname: 'FC Bayern München', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(34).png?raw=true' },
+    { teamname: 'Borussia Dortmund', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(31).png?raw=true' },
+    { teamname: 'RB Leipzig', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(119).png?raw=true' },
+    { teamname: 'Bayer 04 Leverkusen', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/fotboll-bayer-04-leverkusen-logo-large-4452.png?raw=true' },
+    { teamname: 'VfL Wolfsburg', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(120).png?raw=true' },
+    { teamname: 'Eintracht Frankfurt', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(41).png?raw=true' },
+    { teamname: 'Borussia M\'gladbach', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(121).png?raw=true' },
+    {teamname: 'SC Freiburg', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(122).png?raw=true' },
+    { teamname: 'Union Berlin', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(123).png?raw=true' },
+    { teamname: 'VfB Stuttgart', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(124).png?raw=true' },
+    { teamname: '1. FSV Mainz 05', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(125).png?raw=true' },
+    { teamname: '1. FC Heidenheim', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(126).png?raw=true' },
+    { teamname: 'SV Werder Bremen', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(127).png?raw=true' },
+    { teamname: 'FC Augsburg', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(128).png?raw=true' },
+    { teamname: 'TSG Hoffenheim', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(129).png?raw=true' },
+    { teamname: 'VfL Bochum 1848', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(130).png?raw=true' },
+    { teamname: 'FC St. Pauli', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(131).png?raw=true' },
+    { teamname: 'Holstein Kiel', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(132).png?raw=true' },
+  ];
+
+  const teamsliga = [
+  {teamId : 2829, teamname: "Real Madrid" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(27).png?raw=true"},
+  {teamId : 2836, teamname: "Atlético Madrid" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/134.png?raw=true"},
+  {teamId : 2817, teamname: "Barcelona" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/R.png?raw=true"},
+  {teamId : 2825, teamname: "Athletic Club" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(19).png?raw=true"},
+  {teamId : 2819, teamname: "Villarreal" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/133.png?raw=true"},
+  {teamId : 2826, teamname: "Mallorca" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(73).png?raw=true"},
+  {teamId : 2824, teamname: "Real Sociedad" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(74).png?raw=true"},
+  {teamId : 24264, teamname: "Girona FC" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/175.png?raw=true"},
+  {teamId : 2816, teamname: "Real Betis" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/146.png?raw=true"},
+  {teamId : 2820, teamname: "Osasuna" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(75).png?raw=true"},
+  {teamId : 2821, teamname: "Celta Vigo" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(76).png?raw=true"},
+    {teamId : 2818, teamname: "Rayo Vallecano" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(77).png?raw=true"},
+    {teamId : 6577, teamname: "Las Palmas" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(78).png?raw=true"},
+    {teamId : 2833, teamname: "Sevilla" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/135.png?raw=true"},
+    {teamId : 7, teamname: "Crystal Palace" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(5).png?raw=true"},
+    {teamId : 48, teamname: "Everton" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(6).png?raw=true"},
+    {teamId : 3, teamname: "Wolverhampton" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(18).png?raw=true"},
+    {teamId : 32, teamname: "Ipswich Town" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(9).png?raw=true"},
+    {teamId : 31, teamname: "Leicester City" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(10).png?raw=true"},
+    {teamId : 45, teamname: "Southampton" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(15).png?raw=true"},
+
+  ];
+  const teamspl = [
+  {teamId : 44, teamname: "Liverpool" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(8).png?raw=true"},
+    {teamId : 42, teamname: "Arsenal" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/104.png?raw=true"},
+    {teamId : 14, teamname: "Nottingham Forest" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/29.png?raw=true"},
+    {teamId : 38, teamname: "Chelsea" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/106.png?raw=true"},
+    {teamId : 39, teamname: "Newcastle United" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(13).png?raw=true"},
+    {teamId : 17, teamname: "Manchester City" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/110.png?raw=true"},
+    {teamId : 60, teamname: "Bournemouth" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(1).png?raw=true"},
+    {teamId : 40, teamname: "Aston Villa" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image50.png?raw=true"},
+    {teamId : 43, teamname: "Fulham" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(7).png?raw=true"},
+    {teamId : 30, teamname: "Brighton & Hove Albion" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(3).png?raw=true"},
+    {teamId : 50, teamname: "Brentford" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(71).png?raw=true"},
+    {teamId : 33, teamname: "Tottenham" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(72).png?raw=true"},
+    {teamId : 35, teamname: "Manchester United" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(12).png?raw=true"},
+    {teamId : 37, teamname: "West Ham United" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(17).png?raw=true"},
+    {teamId : 7, teamname: "Crystal Palace" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(5).png?raw=true"},
+    {teamId : 48, teamname: "Everton" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(6).png?raw=true"},
+    {teamId : 3, teamname: "Wolverhampton" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(18).png?raw=true"},
+    {teamId : 32, teamname: "Ipswich Town" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(9).png?raw=true"},
+    {teamId : 31, teamname: "Leicester City" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(10).png?raw=true"},
+    {teamId : 45, teamname: "Southampton" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(15).png?raw=true"},
+  ];
+
+  const teamsuel = [
+  {teamId : 61645, teamname: "Lazio" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(95).png?raw=true"},
+    {teamId : 2825, teamname: "Athletic Club" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(19).png?raw=true"},
+    {teamId : 35, teamname: "Manchester United" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(12).png?raw=true"},
+    {teamId : 33, teamname: "Tottenham Hotspur" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(72).png?raw=true"},
+    {teamId : 2674, teamname: "Eintracht Frankfurt" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(41).png?raw=true"},
+    {teamId : 1649, teamname: "Olympique Lyonnais" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/465.png?raw=true"},
+    {teamId : 3245, teamname: "Olympiacos FC" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(96).png?raw=true"},
+    {teamId : 2351, teamname: "Rangers" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(42).png?raw=true"},
+    {teamId : 665, teamname: "Bodø/Glimt" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(97).png?raw=true"},
+    {teamId : 2900, teamname: "RSC Anderlecht" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(44).png?raw=true"},
+    {teamId : 3301, teamname: "FCSB" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(98).png?raw=true"},
+    {teamId : 2953, teamname: "Ajax" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(39).png?raw=true"},
+    {teamId : 2824, teamname: "Real Sociedad" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(74).png?raw=true"},
+    {teamId : 3061, teamname: "Galatasaray" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(43).png?raw=true"},
+    {teamId : 2702, teamname: "Roma" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(35).png?raw=true"},
+    {teamId : 4502, teamname: "Viktoria Plzeň" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(37).png?raw=true"},
+    {teamId : 1925, teamname: "Ferencváros TC" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(99).png?raw=true"},
+    {teamId : 3002, teamname: "FC Porto" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(100).png?raw=true"},
+    {teamId : 2950, teamname: "AZ Alkmaar" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(101).png?raw=true"},
+    {teamId : 1289, teamname: "FC Midtjylland" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(102).png?raw=true"},
+    {teamId : 4860, teamname: "Royale Union Saint-Gilloise" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(103).png?raw=true"},
+    {teamId : 3251, teamname: "PAOK" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(104).png?raw=true"},
+    {teamId : 2955, teamname: "FC Twente" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(105).png?raw=true"},
+    {teamId : 3052, teamname: "Fenerbahçe" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(106).png?raw=true"},
+    {teamId : 2999, teamname: "Sporting Braga" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(36).png?raw=true"},
+    {teamId : 1762, teamname: "IF Elfsborg" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(107).png?raw=true"},
+    {teamId : 2569, teamname: "TSG Hoffenheim" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(108).png?raw=true"},
+    {teamId : 3050, teamname: "Beşiktaş" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(109).png?raw=true"},
+    {teamId : 2216, teamname: "SK Slavia Praha" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(110).png?raw=true"},
+    {teamId : 1892, teamname: "Malmö FF" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(111).png?raw=true"},
+    {teamId : 68718, teamname: "RFS" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(112).png?raw=true"},
+    {teamId : 43840, teamname: "Ludogorets" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(113).png?raw=true"},
+    {teamId : 3305, teamname: "Dynamo Kyiv" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(114).png?raw=true"},
+    {teamId : 1661, teamname: "Nice" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(115).png?raw=true"},
+    {teamId : 5962, teamname: "Qarabağ" , teamLogo : "https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(116).png?raw=true"},
+  ];
+  const teambundesliga = [
+  { teamname: 'FC Bayern München', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(34).png?raw=true' },
+    { teamname: 'Borussia Dortmund', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(31).png?raw=true' },
+    { teamname: 'RB Leipzig', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(119).png?raw=true' },
+    { teamname: 'Bayer 04 Leverkusen', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/fotboll-bayer-04-leverkusen-logo-large-4452.png?raw=true' },
+    { teamname: 'VfL Wolfsburg', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(120).png?raw=true' },
+    { teamname: 'Eintracht Frankfurt', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(41).png?raw=true' },
+    { teamname: 'Borussia M\'gladbach', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(121).png?raw=true' },
+    {teamname: 'SC Freiburg', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(122).png?raw=true' },
+    { teamname: 'Union Berlin', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(123).png?raw=true' },
+    { teamname: 'VfB Stuttgart', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(124).png?raw=true' },
+    { teamname: '1. FSV Mainz 05', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(125).png?raw=true' },
+    { teamname: '1. FC Heidenheim', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(126).png?raw=true' },
+    { teamname: 'SV Werder Bremen', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(127).png?raw=true' },
+    { teamname: 'FC Augsburg', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(128).png?raw=true' },
+    { teamname: 'TSG Hoffenheim', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(129).png?raw=true' },
+    { teamname: 'VfL Bochum 1848', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(130).png?raw=true' },
+    { teamname: 'FC St. Pauli', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(131).png?raw=true' },
+    { teamname: 'Holstein Kiel', teamLogo: 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(132).png?raw=true' },
+  ];
+    
+    const teamName = localStorage.getItem('teamName');
+    const teamLogo = localStorage.getItem('teamLogo');
+    document.getElementById('teamName').innerText=teamName;
+    document.getElementById('title').innerText=teamName;
+    document.getElementById('teamLogo').src=teamLogo;
+
+    document.getElementById('leagueSelect').addEventListener('change', function() {
+    const leagueId = this.value;
+    let url = ''; 
+
+    
+    switch (leagueId) {
+        case '17':
+        const teamExistspl = teamspl.some(team => team.teamname.toLowerCase().trim() === teamName.toLowerCase().trim());
+    if (teamExistspl) {
+        url = 'https://www.sofascore.com/api/v1/tournament/1/season/61627/standings/total';
+    } else {
+        alert('This team is not in Premier League');
+    }
+            break;
+    case '7':
+    const teamExistsucl = teamsucl.some(team => team.teamname.toLowerCase().trim() === teamName.toLowerCase().trim());
+    if (teamExistsucl) {
+        url = 'https://www.sofascore.com/api/v1/unique-tournament/7/season/61644/standings/total';
+       
+    } else {
+        alert('This team is not in Champions League');
+    }
+    break;
+    case '8':
+    const teamExistsliga = teamsliga.some(team => team.teamname.toLowerCase().trim() === teamName.toLowerCase().trim());
+    if(teamExistsliga) {
+        url = 'https://www.sofascore.com/api/v1/unique-tournament/8/season/61643/standings/total';
+    } else {
+        alert('This team is not in La Liga');
+    }
+    break;
+    case '679':
+    const teamExistsuel = teamsuel.some(team => team.teamname.toLowerCase().trim() === teamName.toLowerCase().trim());
+    if (teamExistsuel) {
+        url = 'https://www.sofascore.com/api/v1/unique-tournament/679/season/61645/standings/total';
+    } else {
+        alert('This team is not in Europa League');
+    }
+    case '35':
+        const teamExistBundesliga = teambundesliga.some(team => team.teamname.toLowerCase().trim() === teamName.toLowerCase().trim());
+        if(teamExistBundesliga){
+            url = 'https://www.sofascore.com/api/v1/unique-tournament/35/season/63516/standings/total';
+        } else {
+            alert('This team is not in Bundesliga');
+        }
+        break;
+        default:
+            url = '';
+            break;
+    }
+if (url) {
+    fetchStandings(url);
+}
+
+    });
+
+    function fetchStandings(url) {
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const standings = data.standings[0].rows;
+            displayStandings(standings);
+        })
+        .catch(error => {
+            console.error('Error fetching standings:', error);
+            document.getElementById('standings-list').innerText = 'Failed to load standings. Please try again later.';
+        });
+}
+
+function displayStandings(standings) {
+    const standingslist = document.getElementById('standings-list');
+    standingslist.innerHTML = ''; 
+
+    const headerRow = document.createElement('tr');
+    headerRow.innerHTML = `
+        <th>Position</th>
+        <th>Team</th>
+        <th>Played</th>
+        <th>Wins</th>
+        <th>Draws</th>
+        <th>Diff</th>
+        <th>Points</th>
+    `;
+    standingslist.appendChild(headerRow);
+
+    standings.forEach(item => {
+        const row = document.createElement('tr');
+
+        const position = document.createElement('td');
+        position.innerText = item.position;
+        /* Team logo
+        const logo = document.createElement('img');
+        logo.src = item.team.image || 'default_logo_url.png'; // Use your default logo
+        logo.classList.add('team-logo');*/
+        
+        const teamName = document.createElement('td');
+        teamName.innerText = item.team.name;
+
+        const play = document.createElement('td');
+        play.innerText = item.matches;
+
+        const win = document.createElement('td');
+        win.innerText = item.wins;
+
+        const draws = document.createElement('td');
+        draws.innerText = item.draws;
+
+        const diff = document.createElement('td');
+        diff.innerText = item.scoreDiffFormatted;
+        const points = document.createElement('td');
+        points.innerText = item.points + ' Pts';
+
+        row.appendChild(position);
+        row.appendChild(teamName);
+        row.appendChild(play);
+        row.appendChild(win);
+        row.appendChild(draws);
+        row.appendChild(diff);
+        row.appendChild(points);
+        standingslist.appendChild(row);
+    });
+}
+
+function FetchmatchByTeam() {
+    const id = localStorage.getItem('teamId');
+    const url = `https://www.sofascore.com/api/v1/team/${id}/events/next/0`; 
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.events) { 
+                const events = data.events;
+                displayTeamEvents(events);
+            } else {
+                console.error('No team events');
+            }
+        })
+        .catch(error => {
+            console.error('An error occurred while fetching team events:', error);
+        });
+}
+
+function displayTeamEvents(events) {
+    const teamMatch = document.getElementById('team-match');
+    teamMatch.innerHTML = ''; 
+
+    events.forEach(event => {
+        const date = new Date(event.startTimestamp * 1000);
+        const formattedTime = date.toLocaleTimeString("en-GB", {
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: false
+            });
+
+            const match = document.createElement('div');
+        match.classList.add('match');
+
+        const homeTeam = document.createElement('div');
+        homeTeam.classList.add('home-team');
+        
+        const awayTeam = document.createElement('div');
+        awayTeam.classList.add('away-team');
+
+        const score = document.createElement('div');
+        score.classList.add('score');
+        score.innerText = date.toLocaleDateString() + '\n' + formattedTime;
+
+        const homeLogo = document.createElement('img');
+        homeLogo.classList.add('hometeam-logo');
+
+        const awayLogo = document.createElement('img');
+        awayLogo.classList.add('awayteam-logo');
+
+        const homeTeamData = teamsucl.find(team => team.teamname === event.homeTeam.name);
+        const awayTeamData = teamsucl.find(team => team.teamname === event.awayTeam.name);
+
+        homeLogo.src = homeTeamData ? homeTeamData.teamLogo : 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/logofts.png?raw=true';
+        awayLogo.src = awayTeamData ? awayTeamData.teamLogo : 'https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/logofts.png?raw=true';
+
+        homeLogo.alt = event.homeTeam.name;
+        awayLogo.alt = event.awayTeam.name;
+
+        homeTeam.appendChild(homeLogo);
+        homeTeam.appendChild(document.createTextNode(event.homeTeam.name));
+
+        awayTeam.appendChild(document.createTextNode(event.awayTeam.name));
+        awayTeam.appendChild(awayLogo);
+
+        match.appendChild(homeTeam);
+        match.appendChild(score);
+        match.appendChild(awayTeam);
+        teamMatch.appendChild(match);
+    });
+}
+
+FetchmatchByTeam();
+
+</script>
+</html>

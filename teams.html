@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOOTBALL SCORE | Teams</title>
+</head>
+<style>
+        body {
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: rgb(24, 23, 23);
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    border-radius: 0px 0px 15px 15px;
+    z-index: 1000;
+}
+header .logo{
+    width: 70px;
+    height: auto;
+    cursor: pointer;
+}
+.nav{
+    display: flex;
+    gap : 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav a:hover {
+    color: rgb(26, 148, 26);
+}
+.teams{
+    margin-top: 7.5%;
+    width: 98%;
+    margin-left: 10px;
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(24, 23, 23);
+}
+.ligne {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row;
+    padding-top: 10px;
+    margin-left: 1%;
+    border-radius: 20px;
+}
+.team{
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.5%;
+    border-radius: 15px;
+    text-align: center;
+    background-color: black;
+    width: 110px;
+    height: 110px;
+    margin-top:0.5%;
+    justify-content: center;
+    align-items: center;
+}
+.team h2, .team img{
+    margin: 10px;
+    line-height: 0;
+}
+.team h2{
+    color: white;
+    width: 150px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+<body>
+    <header>
+        <img class="logooo" src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/logofts.png?raw=true" width="70px" height="70px">
+        <nav class="nav">
+            <a href="./index.html">HOME</a>
+            <a href="./page2.html" class="home active">MATCHES</a>
+            <a href="./teams.html">TEAMS</a>
+        </nav>
+    </header>
+    <div class="teams">
+        <div class="ligne">
+            <div class="team" onclick="display('42','Arsenal','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/104.png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/104.png?raw=true" id="Arsenal" width="50px" height="50px">
+                <h2 id="teamName">Arsenal</h2>
+            </div>
+            <div class="team" onclick="display('40','Aston Villa','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image50.png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image50.png?raw=true" id="Aston Villa" width="50px" height="50px">
+                <h2 id="teamName1">Aston Villa</h2>
+            </div>
+            <div class="team" onclick="display('60','AFC Bournemouth','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(1).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(1).png?raw=true" id="AFC Bournemouth" width="50px" height="50px">
+                <h2 id="teamName2">AFC Bournemouth</h2>
+            </div>
+            <div class="team" onclick="display('50','Brentford','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(71).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(71).png?raw=true" id="Brentford" width="50px" height="50px">
+                <h2 id="teamName">Brentford</h2>
+            </div>
+            <div class="team" onclick="display('30','Brighton & Hove Albion','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(3).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(3).png?raw=true" id="Brighton & Hove Albion" width="50px" height="50px">
+                <h2 id="teamName">Brighton</h2>
+            </div>
+            <div class="team" onclick="display('38','Chelsea','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/106.png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/106.png?raw=true" id="Chelsea" width="50px" height="50px">
+                <h2 id="teamName">Chelsea</h2>
+            </div>
+            <div class="team" onclick="display('7','Crystal Palace','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(5).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(5).png?raw=true" id="Crystal Palace" width="50px" height="50px">
+                <h2 id="teamName">Crystal Palace</h2>
+            </div>
+            <div class="team" onclick="display('48','Everton','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(6).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(6).png?raw=true" id="Everton" width="50px" height="50px">
+                <h2 id="teamName">Everton</h2>
+            </div>
+            <div class="team" onclick="display('43','Fulham','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(7).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(7).png?raw=true" id="Fulham" width="50px" height="50px">
+                <h2 id="teamName">Fulham</h2>
+            </div>
+            <div class="team" onclick="display('14','Nottingham Forest','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/29.png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/29.png?raw=true" id="Nottingham Forest" width="50px" height="50px">
+                <h2 id="teamName">Nottingham Forest</h2>
+            </div>
+            <div class="team" onclick="display('32','Ipswich Town','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(9).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(9).png?raw=true" id="Ipswich Town" width="50px" height="50px">
+                <h2 id="teamName">Ipswich Town</h2>
+            </div>
+            <div class="team" onclick="display('31','Leicester City','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(10).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(10).png?raw=true" id="Leicester City" width="50px" height="50px">
+                <h2 id="teamName">Leicester City</h2>
+            </div>
+            <div class="team" onclick="display('44','Liverpool','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(8).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(8).png?raw=true" id="Liverpool" width="50px" height="50px">
+                <h2 id="teamName">Liverpool</h2>
+            </div>
+            <div class="team" onclick="display('17','Manchester City','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/110.png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/110.png?raw=true" id="Manchester City" width="50px" height="50px">
+                <h2 id="teamName">Manchester City</h2>
+            </div>
+            <div class="team" onclick="display('35','Manchester United','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(12).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(12).png?raw=true" id="Manchester United" width="50px" height="50px">
+                <h2 id="teamName">Manchester United</h2>
+            </div>
+            <div class="team" onclick="display('39','Newcastle United','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(13).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(13).png?raw=true" id="Newcastle United" width="50px" height="50px">
+                <h2 id="teamName">Newcastle United</h2>
+            </div>
+            <div class="team" onclick="display('45','Southampton','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(15).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(15).png?raw=true" id="Southampton" width="50px" height="50px">
+                <h2 id="teamName">Southampton</h2>
+            </div>
+            <div class="team" onclick="display('33','Tottenham','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(16).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(16).png?raw=true" id="Tottenham" width="50px" height="50px">
+                <h2 id="teamName">Tottenham</h2>
+            </div> 
+            <div class="team" onclick="display('37','West Ham United','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(17).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(17).png?raw=true" id="West Ham" width="50px" height="50px">
+                <h2 id="teamName">West Ham</h2>
+            </div>
+            <div class="team" onclick="display('3','Wolves','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(18).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(18).png?raw=true" id="Wolves" width="50px" height="50px">
+                <h2 id="teamName">Wolves</h2>
+            </div>
+            <div class="team" onclick="display('2885','Deportivo Alavés','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/168.png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/168.png?raw=true" id="Alavés" width="50px" height="50px">
+                <h2 id="teamName">Alavés</h2>
+            </div>
+            <div class="team" onclick="display('2825','Athletic Club','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(19).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(19).png?raw=true" id="Athletic Club" width="50px" height="50px">
+                <h2 id="teamName">Athletic Club</h2>
+            </div>
+            <div class="team" onclick="display('2836','Atlético Madrid','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/134.png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/134.png?raw=true" id="Atl. Madrid" width="50px" height="50px">
+                <h2 id="teamName">Atlético Madrid</h2>
+            </div>
+            <div class="team" onclick="display('2817','Barcelona','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/R.png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/R.png?raw=true" id="Barcelona" width="50px" height="50px">
+                <h2 id="teamName">Barcelona</h2>
+            </div>
+            <div class="team" onclick="display('2821','Celta Vigo','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(20).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(20).png?raw=true" id="Celta" width="50px" height="50px">
+                <h2 id="teamName">Celta</h2>
+            </div>
+            <div class="team" onclick="display('2814','Espanyol','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(21).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(21).png?raw=true" id="Espanyol" width="50px" height="50px">
+                <h2 id="teamName">Espanyol</h2>
+            </div>
+            <div class="team" onclick="display('2859','Getafe','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(22).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(22).png?raw=true" id="Getafe" width="50px" height="50px">
+                <h2 id="teamName">Getafe</h2>
+            </div>
+            <div class="team" onclick="display('24264','Girona','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/175.png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/175.png?raw=true" id="Girona" width="50px" height="50px">
+                <h2 id="teamName">Girona</h2>
+            </div>
+            <div class="team" onclick="display('6577','Las Palmas','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(78).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(78).png?raw=true" id="Las Palmas" width="50px" height="50px">
+                <h2 id="teamName">Las Palmas</h2>
+            </div>
+            <div class="team" onclick="display('2845','Leganés','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(117).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(117).png?raw=true" id="Leganés" width="50px" height="50px">
+                <h2 id="teamName">Leganés</h2>
+            </div>
+            <div class="team" onclick="display('2826','Mallorca','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(73).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(73).png?raw=true" id="Mallorca" width="50px" height="50px">
+                <h2 id="teamName">Mallorca</h2>
+            </div>
+            <div class="team" onclick="display('2818','Rayo Vallecano','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(77).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(77).png?raw=true" id="Rayo Vallecano" width="50px" height="50px">
+                <h2 id="teamName">Rayo Vallecano</h2>
+            </div>
+            <div class="team" onclick="display('2816','Real Betis','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/146.png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/146.png?raw=true" id="Real Betis" width="50px" height="50px">
+                <h2 id="teamName">Real Betis</h2>
+            </div>
+            <div class="team" onclick="display('2829','Real Madrid','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(27).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(27).png?raw=true" id="Real Madrid" width="50px" height="50px">
+                <h2 id="teamName">Real Madrid</h2>
+            </div>
+            <div class="team" onclick="display('2824','Real Sociedad','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(74).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(74).png?raw=true" id="Real Sociedad" width="50px" height="50px">
+                <h2 id="teamName">Real Sociedad</h2>
+            </div>
+            <div class="team" onclick="display('2831','Real Valladolid','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(118).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(118).png?raw=true" id="Real Valladolid" width="50px" height="50px">
+                <h2 id="teamName">Real Valladolid</h2>
+            </div>
+            <div class="team" onclick="display('2833','Sevilla','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/135.png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/135.png?raw=true" id="Sevilla" width="50px" height="50px">
+                <h2 id="teamName">Sevilla</h2>
+            </div>
+            <div class="team" onclick="display('2828','Valencia','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/139.png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/139.png?raw=true" id="Valencia" width="50px" height="50px">
+                <h2 id="teamName">Valencia</h2>
+            </div>
+            <div class="team" onclick="display('2819','Villarreal','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/133.png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/133.png?raw=true" id="Villarreal" width="50px" height="50px">
+                <h2 id="teamName">Villarreal</h2>
+            </div>
+            <div class="team" onclick="display('2600','FC Augsburg','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(128).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(128).png?raw=true" id="Augsburg" width="50px" height="50px">
+                <h2 id="teamName">FC Augsburg</h2>
+            </div>
+            <div class="team" onclick="display('2672','Bayern','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(34).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(34).png?raw=true" id="Bayern" width="50px" height="50px">
+                <h2 id="teamName">Bayern</h2>
+            </div>
+            <div class="team" onclick="display('2542','VfL Bochum 1848','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(130).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(130).png?raw=true" id="Bochum" width="50px" height="50px">
+                <h2 id="teamName">Bochum</h2>
+            </div>
+            <div class="team" onclick="display('2534','SV Werder Bremen','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(127).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(127).png?raw=true" id="Bremen" width="50px" height="50px">
+                <h2 id="teamName">Bremen</h2>
+            </div>
+            <div class="team" onclick="display('2673','Borussia Dortmund','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(31).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(31).png?raw=true" id="Dortmund" width="50px" height="50px">
+                <h2 id="teamName">Dortmund</h2>
+            </div>
+            <div class="team" onclick="display('2674','Eintracht Frankfurt','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(41).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(41).png?raw=true" id="Frankfurt" width="50px" height="50px">
+                <h2 id="teamName">Frankfurt</h2>
+            </div>
+            <div class="team" onclick="display('2538','SC Freiburg','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(122).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(122).png?raw=true" id="Freiburg" width="50px" height="50px">
+                <h2 id="teamName">SC Freiburg</h2>
+            </div>
+            <div class="team" onclick="display('5885','1. FC Heidenheim','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(126).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(126).png?raw=true" id="Heidenheim" width="50px" height="50px">
+                <h2 id="teamName">Heidenheim</h2>
+            </div>
+            <div class="team" onclick="display('2569','TSG Hoffenheim','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(129).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(129).png?raw=true" id="Hoffenheim" width="50px" height="50px">
+                <h2 id="teamName">Hoffenheim</h2>
+            </div>
+            <div class="team" onclick="display('2573','Holstein Kiel','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(132).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(132).png?raw=true" id="Kiel" width="50px" height="50px">
+                <h2 id="teamName">Kiel</h2>
+            </div>
+            <div class="team" onclick="display('2681','Bayer 04 Leverkusen','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/fotboll-bayer-04-leverkusen-logo-large-4452.png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/fotboll-bayer-04-leverkusen-logo-large-4452.png?raw=true" id="Leverkusen" width="50px" height="50px">
+                <h2 id="teamName">Leverkusen</h2>
+            </div>
+            <div class="team" onclick="display('36360','RB Leipzig','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(119).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(119).png?raw=true" id="Leipzig" width="50px" height="50px">
+                <h2 id="teamName">Leipzig</h2>
+            </div>
+            <div class="team" onclick="display('2556','1. FSV Mainz 05','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(125).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(125).png?raw=true" id="Mainz 05" width="50px" height="50px">
+                <h2 id="teamName">Mainz 05</h2>
+            </div>
+            <div class="team" onclick="display('2527','Borussia M\'gladbach','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(121).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(121).png?raw=true" id="M'gladbach" width="50px" height="50px">
+                <h2 id="teamName">M'gladbach</h2>
+            </div>
+            <div class="team" onclick="display('2526','FC St. Pauli','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(131).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(131).png?raw=true" id="St. Pauli" width="50px" height="50px">
+                <h2 id="teamName">FC St. Pauli</h2>
+            </div>
+            <div class="team" onclick="display('2677','VFB Stuttgart','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(124).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(124).png?raw=true" id="Stuttgart" width="50px" height="50px">
+                <h2 id="teamName">Stuttgart</h2>
+            </div>
+            <div class="team" onclick="display('2547','1. FC Union Berlin','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(123).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(123).png?raw=true" id="Union Berlin" width="50px" height="50px">
+                <h2 id="teamName">1. FC Union Berlin</h2>
+            </div>
+            <div class="team" onclick="display('2524','VFL Wolfsburg','https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(120).png?raw=true')">
+                <img src="https://github.com/aminelebrini/FOOTBALL-SCORE/blob/main/image%20(120).png?raw=true" id="Wolfsburg" width="50px" height="50px">
+                <h2 id="teamName">Wolfsburg</h2>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    function display(teamId,teamName, teamLogo){
+        localStorage.setItem('teamName', teamName);
+        localStorage.setItem('teamLogo',teamLogo);
+        localStorage.setItem('teamId',teamId);
+        window.location.href = "./displayTeam.html";
+    }
+</script>
+</html>
